@@ -25,7 +25,7 @@ export const Signin = () => {
 
     try {
       const resp = await fetch(
-        "https://project-kv.onrender.com/api/v1/auth/signin",
+        "https://backend-project-kv.onrender.com/api/v1/auth/signin",
         {
           method: "POST",
           headers: {
@@ -39,13 +39,13 @@ export const Signin = () => {
         dispatch(setToken(response.token));
         localStorage.setItem("token", JSON.stringify(response.token));
         dispatch(setUser(response.user));
-        console.log("Navigating to dashboard");
+        // console.log("Navigating to dashboard");
         navigate("/dashboard");
       } else {
-        console.log("Error in connecting ");
+        // console.log("Error in connecting ");
       }
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
     } finally {
       setLoading(false);
     }
